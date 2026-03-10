@@ -1,6 +1,6 @@
-﻿using AbstractFactory.Characters;
-using AbstractFactory.Factories;
-using AbstractFactory.Talents;
+﻿using AbstractFactory.Builder;
+using AbstractFactory.Factory;
+using AbstractFactory.Unit;
 
 namespace AbstractFactory;
 
@@ -30,67 +30,122 @@ internal class Program
     {
         Console.WriteLine("\n未使用设计模式的代码:");
 
-        Console.WriteLine("玩家创建了一个人类角色，选择了一个天赋。");
-        var human = new HumanCharacter();
-        human.Talent = new HumanTalent();
+        Console.WriteLine("玩家游玩一个RTS游戏, 选择了人类种族。");
+        Console.WriteLine("玩家建造人族兵营");
+        var humanBarracks = new HumanBarracks();
+        humanBarracks.BuildComplete();
 
-        Console.WriteLine("玩家遇到强敌, 使用了人类角色的天赋。");
-        human.UseTalent();
+        Console.WriteLine("玩家生产了3个人族弓箭手");
+        var archer = new HumanArcher();
+        var archer2 = new HumanArcher();
+        var archer3 = new HumanArcher();
 
-        Console.WriteLine("玩家不敌强敌, 觉得种族天赋不是很强, 选择了一个兽人角色，选择了一个天赋。");
-        var orc = new OrcCharacter();
-        orc.Talent = new OrcTalent();
+        Console.WriteLine("玩家带着他的部队选择冲锋敌方基地");
+        archer.Attack();
+        archer2.Attack();
+        archer3.Attack();
 
-        Console.WriteLine("玩家遇到强敌, 使用了兽人角色的天赋。");
-        orc.UseTalent();
+        Console.WriteLine("玩家被兽人的高防战士一顿爆锤");
+        Console.WriteLine("玩家失败了, 重新开始游戏");
 
-        Console.WriteLine("玩家战胜强敌, 但是因角色太丑了, 被Npc嫌弃, 于是选择了一个精灵角色，选择了一个天赋。");
-        var elf = new ElfCharacter();
-        elf.Talent = new ElfTalent();
+        Console.WriteLine("玩家选择了兽人种族。");
+        Console.WriteLine("玩家建造兽人兵营");
+        var orcBarracks = new OrcBarracks();
+        orcBarracks.BuildComplete();
 
-        Console.WriteLine("玩家遇到哥布林群, 使用了精灵角色的天赋。");
-        elf.UseTalent();
+        Console.WriteLine("玩家生产了3个兽人战士");
+        var orcWarrior = new OrcWarrior();
+        var orcWarrior2 = new OrcWarrior();
+        var orcWarrior3 = new OrcWarrior();
 
-        Console.WriteLine("精灵魅力值高升高, 哥布林触发激昂效果, 于是不敌。");
+        Console.WriteLine("玩家带着他的部队选择冲锋敌方基地");
+        orcWarrior.Attack();
+        orcWarrior2.Attack();
+        orcWarrior3.Attack();
 
-        Console.WriteLine("玩家决定删除游戏。");
+        Console.WriteLine("玩家被精灵的高魔攻法师打的满头包");
+        Console.WriteLine("玩家失败了, 重新开始游戏");
+
+        Console.WriteLine("玩家选择了精灵种族。");
+        Console.WriteLine("玩家建造精灵法师塔");
+        var elfMageTower = new ElfMageTower();
+        elfMageTower.BuildComplete();
+
+        Console.WriteLine("玩家生产了3个精灵法师");
+        var elfMage = new ElfMage();
+        var elfMage2 = new ElfMage();
+        var elfMage3 = new ElfMage();
+
+        Console.WriteLine("玩家带着他的部队选择冲锋敌方基地");
+        elfMage.Attack();
+        elfMage2.Attack();
+        elfMage3.Attack();
+
+        Console.WriteLine("玩家的脆皮法师被人族弓箭手一箭一个");
+        Console.WriteLine("玩家失败了, 垃圾游戏, 删了");
     }
 
     private static void UsedDesignPattern()
     {
         Console.WriteLine("\n使用抽象工厂模式的代码:");
 
+        Console.WriteLine("玩家游玩一个RTS游戏, 选择了人类种族。");
         var humanFactory = new HumanFactory();
+
+        Console.WriteLine("玩家建造人族兵营");
+        var humanBarracks = humanFactory.CreateBarracks();
+        humanBarracks.BuildComplete();
+
+        Console.WriteLine("玩家生产了3个人族弓箭手");
+        var archer = humanBarracks.CreateArcher();
+        var archer2 = humanBarracks.CreateArcher();
+        var archer3 = humanBarracks.CreateArcher();
+
+
+        Console.WriteLine("玩家带着他的部队选择冲锋敌方基地");
+        archer.Attack();
+        archer2.Attack();
+        archer3.Attack();
+
+        Console.WriteLine("玩家被兽人的高防战士一顿爆锤");
+        Console.WriteLine("玩家失败了, 重新开始游戏");
+
+        Console.WriteLine("玩家选择了兽人种族。");
         var orcFactory = new OrcFactory();
+        Console.WriteLine("玩家建造兽人兵营");
+        var orcBarracks = orcFactory.CreateBarracks();
+        orcBarracks.BuildComplete();
+
+        Console.WriteLine("玩家生产了3个兽人战士");
+        var orcWarrior = orcBarracks.CreateWarrior();
+        var orcWarrior2 = orcBarracks.CreateWarrior();
+        var orcWarrior3 = orcBarracks.CreateWarrior();
+
+        Console.WriteLine("玩家带着他的部队选择冲锋敌方基地");
+        orcWarrior.Attack();
+        orcWarrior2.Attack();
+        orcWarrior3.Attack();
+
+        Console.WriteLine("玩家被精灵的高魔攻法师打的满头包");
+        Console.WriteLine("玩家失败了, 重新开始游戏");
+
+        Console.WriteLine("玩家选择了精灵种族。");
         var elfFactory = new ElfFactory();
+        Console.WriteLine("玩家建造精灵法师塔");
+        var elfMageTower = elfFactory.CreateMageTower();
+        elfMageTower.BuildComplete();
 
-        Console.WriteLine("玩家创建了一个人类角色，选择了一个天赋。");
-        var human = CreateCharacter(humanFactory);
+        Console.WriteLine("玩家生产了3个精灵法师");
+        var elfMage = elfFactory.CreateMage();
+        var elfMage2 = elfFactory.CreateMage();
+        var elfMage3 = elfFactory.CreateMage();
 
-        Console.WriteLine("玩家遇到强敌, 使用了人类角色的天赋。");
-        human.UseTalent();
+        Console.WriteLine("玩家带着他的部队选择冲锋敌方基地");
+        elfMage.Attack();
+        elfMage2.Attack();
+        elfMage3.Attack();
 
-        Console.WriteLine("玩家不敌强敌, 觉得种族天赋不是很强, 选择了一个兽人角色，选择了一个天赋。");
-        var orc = CreateCharacter(orcFactory);
-
-        Console.WriteLine("玩家遇到强敌, 使用了兽人角色的天赋。");
-        orc.UseTalent();
-
-        Console.WriteLine("玩家战胜强敌, 但是因角色太丑了, 被Npc嫌弃, 于是选择了一个精灵角色，选择了一个天赋。");
-        var elf = CreateCharacter(elfFactory);
-
-        Console.WriteLine("玩家遇到哥布林群, 使用了精灵角色的天赋。");
-        elf.UseTalent();
-
-        Console.WriteLine("精灵魅力值高升高, 哥布林触发激昂效果, 于是不敌。");
-
-        Console.WriteLine("玩家决定删除游戏。");
-    }
-
-    private static ICharacter CreateCharacter(ICharacterFactory factory)
-    {
-        var character = factory.CreateCharacter();
-        character.Talent = factory.CreateTalent();
-        return character;
+        Console.WriteLine("玩家的脆皮法师被人族弓箭手一箭一个");
+        Console.WriteLine("玩家失败了, 垃圾游戏, 删了");
     }
 }
