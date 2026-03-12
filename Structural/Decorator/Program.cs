@@ -12,6 +12,7 @@ namespace Decorator;
 ///
 /// 注意:
 /// 装饰器模式避免了类因为不同的组合导致的类数量爆炸
+/// 但是装饰器模式的问题会导致对象层级可能非常深, Debug 有时候会很痛苦。
 /// </summary>
 internal class Program
 {
