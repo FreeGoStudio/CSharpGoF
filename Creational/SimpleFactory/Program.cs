@@ -21,10 +21,10 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        //未使用简单工厂模式
+        //未使用设计模式
         UnusedDesignPattern();
 
-        //使用简单工厂模式
+        //使用设计模式
         UsedDesignPattern();
     }
 

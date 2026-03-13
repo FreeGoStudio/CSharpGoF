@@ -1,7 +1,7 @@
 ﻿namespace Prototype;
 
 /// <summary>
-/// 代理模式 (Proxy Pattern)
+/// 原型模式 (Prototype Pattern)
 /// 一种 创建型设计模式 
 ///
 /// 核心思想:
@@ -14,18 +14,20 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        //未使用简单工厂模式
+        //未使用设计模式
         UnusedDesignPattern();
 
-        //使用简单工厂模式
+        //使用设计模式
         UsedDesignPattern();
     }
 
     private static void UnusedDesignPattern()
     {
+        Console.WriteLine("\n未使用设计模式的代码:");
     }
 
     private static void UsedDesignPattern()
     {
+        Console.WriteLine("\n使用原型模式的代码:");
     }
 }
