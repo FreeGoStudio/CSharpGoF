@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Structural\Proxy\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Creational\Prototype\Prototype.csproj", "{2458F122-8DA6-48D8-BDF3-9AC214675C42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod", "Behavioral\TemplateMethod\TemplateMethod.csproj", "{B5F2070C-F3BB-460B-A442-314D46769CB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{2458F122-8DA6-48D8-BDF3-9AC214675C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2458F122-8DA6-48D8-BDF3-9AC214675C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2458F122-8DA6-48D8-BDF3-9AC214675C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F2070C-F3BB-460B-A442-314D46769CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F2070C-F3BB-460B-A442-314D46769CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F2070C-F3BB-460B-A442-314D46769CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F2070C-F3BB-460B-A442-314D46769CB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +78,6 @@ Global
 		{210754E5-A82D-4DDD-A098-5ED186EB5955} = {F678D60F-D048-4971-BF38-33D82CD07EF2}
 		{80012B74-B1A4-4995-849A-EFB28842B346} = {F678D60F-D048-4971-BF38-33D82CD07EF2}
 		{2458F122-8DA6-48D8-BDF3-9AC214675C42} = {D07839D2-76CA-4C7A-A440-EBB9FE1B8EAA}
+		{B5F2070C-F3BB-460B-A442-314D46769CB7} = {545ACB77-028B-4A0E-BEED-19A37ED42690}
 	EndGlobalSection
 EndGlobal
