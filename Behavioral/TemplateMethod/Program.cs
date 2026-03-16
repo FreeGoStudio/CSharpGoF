@@ -45,7 +45,7 @@ internal class Program
 
     private static void UsedDesignPattern()
     {
-        Console.WriteLine("\n使用策略模式的代码:");
+        Console.WriteLine("\n使用模板方法模式的代码:");
 
         //发动攻击的过程: 准备->造成伤害->播放动画
         Console.WriteLine("玩家发动剑攻击");
