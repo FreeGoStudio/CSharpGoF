@@ -8,6 +8,15 @@
 /// 提供一种方法，顺序访问一个集合中的元素，而不暴露其内部结构。
 ///
 /// 结构:
+/// Client（客户端）
+///     ↓ 使用
+/// Iterator（迭代器接口）
+///     ↓ 遍历
+/// ConcreteIterator（具体迭代器）
+///     ↓ 持有集合
+/// Aggregate（集合接口）
+///     ↓
+/// ConcreteAggregate（具体集合）
 /// </summary>
 internal class Program
 {
